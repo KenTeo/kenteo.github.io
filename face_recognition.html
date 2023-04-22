@@ -94,29 +94,38 @@
                 <source src="https://user-images.githubusercontent.com/24710914/233134898-2bce255c-e67a-424d-88b3-4fb35e35a226.webm" type=video/webm>
               Your browser does not support the video tag.
               </video>
+              <p>Above is a demo of the application to perform face recognition.</p>
+              <p>Multiple faces can be detected at any time. In the video, my face and Andrew Ng face is detected.
+                Andrew Ng is a computer scientist who has contributed greatly to the AI community.
+              </p>
+              <h3 class="h2 mb-3">Overview of the face recognition application</h3>
               <img src="assets/img/face/face_recognition.jpg" alt="Image" class="img-fluid">
+              <p>The 3 components of the applications are the photo taking module, face training model and the running application to perform face recognition.</p>
               <img src="assets/img/face/photo_taking.jpg" alt="Image" class="img-fluid">
+              <p>1) Take photos using photo_taking.py. The photos will be use as data to train the face recognition model.</p>
               <img src="assets/img/face/train_images.jpg" alt="Image" class="img-fluid">
+              <p>2) Train the LBPH recognizer using the photos taken in 1).</p>
               <img src="assets/img/face/application.jpg" alt="Image" class="img-fluid">
+              <p>3) Identify face/faces using trained haarcascade model and crop out the face.</p>
+              <p>4) Use the cropped faces in 3) and predict the face identify using the trained mode in 2).</p>
             </div>
             <div class="col-md-3 ml-auto" data-aos="fade-up" data-aos-delay="100">
               <div class="sticky-content">
-                <h3 class="h3">Mobile base with arm manipulator</h3>
-                <p class="mb-4"><span class="text-muted">Robotics</span></p>
+                <h3 class="h3">Created a face recognition application</h3>
+                <p class="mb-4"><span class="text-muted">Deep learning</span></p>
 
                 <div class="mb-5">
-                  <p>Integrate mobile base with arm manipulator to perform multi-purpose tasks</p>
+                  <p>The application uses OpenCV and trained haar Cascade model for facial detection</p>
                 </div>
 
                 <h4 class="h4 mb-3">What I did</h4>
                 <ul class="list-unstyled list-line mb-5">
-                  <li>Integrate the mobile base with manipulator</li>
-                  <li>Integrate computer vision with ROS</li>
-                  <li>Interfacing of components </li>
-                  <li>Multi-purpose tasks planning</li>
+                  <li>Build a pipeline to take photos</li>
+                  <li>Train faces with LBPH recognizer</li>
+                  <li>Build a pipeline to identify faces</li>
                 </ul>
 
-                <p><a href="#" class="readmore">Visit Website</a></p>
+                <p><a href="https://github.com/KenTeo/OpenCV-project" class="readmore">Visit Website</a></p>
               </div>
             </div>
           </div>

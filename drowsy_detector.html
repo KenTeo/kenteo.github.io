@@ -84,17 +84,32 @@
             <div class="col-md-8" data-aos="fade-up">
               <h2 class="h2 mb-3">Drowsy Training data</h2>
               <img src="assets/img/drowsy/drowsy_pics.png" alt="Image" class="img-fluid">
+              <p>Above shows the drowsy photos used to train the model. Drowsy and awake photos are 
+                needed to train the Yolov5 to detect drowsy or awake state.</p>
               <h2 class="h2 mb-3">Demo of drowsy detector</h2>
               <video width="600" height="450" controls>
                 <source src="https://user-images.githubusercontent.com/24710914/233113868-09b2e344-bf34-42c6-a203-9f8553b59abe.webm" type=video/webm>
               Your browser does not support the video tag.
               </video>
+              <p>As seen in the video above, when I look serious(awake) the YOLOv5 model will classify me as awake. When I look sleepy, it will classify me as drowsy.
+                When I am drowsy for a pre-defined length of time, the alarm will sound to work me up. =P. As can be seen from the video,
+                the response time is very fast(~1s) and highly reliable.
+              </p>
               <h2 class="h2 mb-3">Application stack</h2>
               <img src="assets/img/drowsy/drowsy_detector_stack.png" alt="Image" class="img-fluid">
+              <p>Above shows the overview of the application architecture.</p>
+              <p>1) Camera output is feed into the YOLO model.</p>
+              <p>2) The YOLO model will output the image with the boxed face and the state of the person.</p>
+              <p>3) The state of the timer will be tracked. If the timer is on and drowsy state is detected pre-defined time. The alarm will sound.</p>
               <h2 class="h2 mb-3">Training process</h2>
               <img src="assets/img/drowsy/drowsy_detector_metrics.png" alt="Image" class="img-fluid">
+              <p>The YOLO model will minimize the loss of the bounding box loss, objectness loss and classification loss.</p>
               <h2 class="h2 mb-3">Result of output</h2>
               <img src="assets/img/drowsy/drowsy_detector_confusion_matrix.png" alt="Image" class="img-fluid">
+              <p>From the confusion matrix above, we can see that the accurate is very high. 
+                For every 20 images, 17 (threshold-0.25) and 15 (threshold-0.5) is predicted corrected.
+                With the combination of averaging the output, we can very accurately and reliably determine if a person is in drowsy or awake state.
+              </p>
             </div>
             <div class="col-md-3 ml-auto" data-aos="fade-up" data-aos-delay="100">
               <div class="sticky-content">
