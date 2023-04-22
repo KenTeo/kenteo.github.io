@@ -79,8 +79,8 @@
       <div class="container">
         <div class="row mb-4 align-items-center">
           <div class="col-md-6" data-aos="fade-up">
-            <h2>Mobile base & arm manipulator robot</h2>
-            <p>Implementation of ROS, SLAM, AMCL, Moveit, Gazebo, OpenCV, Point Cloud Library (PCL), Abaqus, 3D printing, simulation</p>
+            <h2>Onmi-directional mobile base & arm manipulator (6-DOF, 2-finger) robot</h2>
+            <p>Implementation of ROS, SLAM, AMCL, Moveit, Gazebo, OpenCV, Point Cloud Library (PCL), Abaqus, Solidworks, 3D printing, simulation</p>
           </div>
         </div>
       </div>
@@ -90,31 +90,64 @@
           <div class="row align-items-stretch">
             <div class="col-md-8" data-aos="fade-up">
               <img src="assets/img/robot/3D_and_actual_robot.png" alt="Image" class="img-fluid">
-              <h2 class="h2 mb-3">Pick and place item</h2>
+              <h3 class="h2 mb-3">Pick and place item using computer vision</h3>
               <video width="600" height="450" controls>
                 <source src="https://user-images.githubusercontent.com/24710914/232942639-ecfc163e-e0ad-48de-be95-70d80343a2f4.mp4" type=video/mp4>
               Your browser does not support the video tag.
               </video>
-              <h2 class="h2 mb-3">Table Cleaning</h2>
+              <h3 class="h2 mb-3">Table Cleaning (Performing task with both mobile base and arm manipulator)</h3>
               <video width="600" height="450" controls>
                 <source src="https://user-images.githubusercontent.com/24710914/233110990-cc554e1a-6e8d-41b2-a1f1-9cbd54b8c643.mp4" type=video/mp4>
               Your browser does not support the video tag.
               </video>
+              <h3 class="h2 mb-3">Overview of the works of the robot</h3>
               <img src="assets/img/robot/integration_diagram.png" alt="Image" class="img-fluid">
+              <p>Mobile Base: The robot will take in Lidar data which will be passed to AMCL for localization of the robot and SLAM for mapping of the area.</p>
+              <p>Arm Manipulator: The robot will take in BGR and depth data through the RGB and depth cameras. The data will be passed to OpenCV to identify the object 
+                and segmenter to crop out the image. The information will then be use to generate a goal.</p>
+              <p>The output from the AMCL(Mobile base) and the goal(Arm manipulator) will be given to Moveit to perform path planning.</p>
+              <p>Output from Moveit will be sent to the drivers of the robot to perform the physical tasks.</p>
+              <h3 class="h2 mb-3">RGB, depth and IR cameras</h3>
               <img src="assets/img/robot/RGB_depth_camera.png" alt="Image" class="img-fluid">
+              <p>RGB camera (Bottom Left), Depth camera (Bottom Right), Combination of RGB and Depth Camera (Top Right), IR camera (Top Left)</p>
+              <h3 class="h2 mb-3">SLAM Mapping</h3>
               <img src="assets/img/robot/SLAM.png" alt="Image" class="img-fluid">
+              <p>Above is the mapping of the Lab using Lidar. Area at the top of the image are areas in the lab where the 
+                path is too narrow for the robot to enter and map. 
+              </p>
+              <h3 class="h2 mb-3">Robot 3D Collision CAD</h3>
               <img src="assets/img/robot/colllision_actual.png" alt="Image" class="img-fluid">
+              <p>Above is the comparison of the actual robot vs the robot's 3D visualization and 3D collision visualization. 
+                Defining a good collision model is critical for efficient motion planning.
+              </p>
+              <h3 class="h2 mb-3">Overview of Motion Planning</h3>
               <img src="assets/img/robot/motion_planning.png" alt="Image" class="img-fluid">
+              <h3 class="h2 mb-3">Virtualization of motion planning</h3>
               <img src="assets/img/robot/motion_planning_steps.png" alt="Image" class="img-fluid">
+              <p>Above shows the motion planning of the Arm manipulator from its start to end state.</p>
+              <h3 class="h2 mb-3">Mobile base architecture</h3>
               <img src="assets/img/robot/mobile_base_rqt_graph.png" alt="Image" class="img-fluid">
+              <p>Above is the overview of the mobile base ROS nodes and the relationships between the publishers and subscribers.</p>
+              <h3 class="h2 mb-3">Arm Manipulator architecture</h3>
               <img src="assets/img/robot/arm_manipulator_rqt_graph.png" alt="Image" class="img-fluid">
+              <p>Above is the overview of the arm manipulator ROS nodes and the relationships between the publishers and subscribers.</p>
+              <h3 class="h2 mb-3">3D CAD of Camera Mounting</h3>
               <img src="assets/img/robot/3d_print_elastic.png" alt="Image" class="img-fluid">
+              <h3 class="h2 mb-3">3D CAD and actual Camera Mounting</h3>
               <img src="assets/img/robot/3d_print_elastic_apply.png" alt="Image" class="img-fluid">
               <img src="assets/img/robot/3d_printing_screw.png" alt="Image" class="img-fluid">
+              <p>The interfacing of physical components are done through 3D printing of customised brackets when
+                no other simpler alternatives are available. Brackets are to prevent shaking of the camera
+              </p>
+              <h3 class="h2 mb-3">3D simulation of the nature frequency</h3>
               <img src="assets/img/robot/1_pole_frequency.png" alt="Image" class="img-fluid">
               <img src="assets/img/robot/1_pole_frequency_table.png" alt="Image" class="img-fluid">
               <img src="assets/img/robot/3_pole_frequency.png" alt="Image" class="img-fluid">
               <img src="assets/img/robot/3_pole_frequency_table.png" alt="Image" class="img-fluid">
+              <p>Above is the 3D simulation of the nature frequency of the camera supporting poles.
+                This is to justify the design of the camera supporting poles as the camera cannot 
+                shake too much to provide reliable and good images output.
+              </p>
             </div>
             <div class="col-md-3 ml-auto" data-aos="fade-up" data-aos-delay="100">
               <div class="sticky-content">
@@ -131,6 +164,7 @@
                   <li>Integrate computer vision with ROS</li>
                   <li>Interfacing of components </li>
                   <li>Multi-purpose tasks planning</li>
+                  <li>Program in C++(Low-level), python(High-level)</li>
                 </ul>
               </div>
             </div>
