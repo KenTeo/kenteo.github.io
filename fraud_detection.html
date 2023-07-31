@@ -102,6 +102,8 @@
               <h2 class="h2 mb-3">Prediction from LLM model</h2>
               <img src="assets/img/fraud/llm_output.png" alt="Image" class="img-fluid">
               <p>Prediction from LLM will provide the fraud prediction and its reasons for the prediction</p>
+              <h4>The dataset is a open dataset with the following features: "Time","V1~V28","Amount","Class". (30 Features + 1 label)</h4>
+              <h4>Customer privacy has been achieve in this data through masking the data using PCA. The same data is used for EBM.</h4>
               <h2 class="h2 mb-3">Generalisation of subsampled data</h2>
               <img src="assets/img/fraud/kmeans.png" alt="Image" class="img-fluid">
               <p>K-means is used to obtain a subsampled data from the raw dataset to ensure good generalisation of a subsampled data. This is because it is very costly to save all the data in the vectorstore for reference whenever a prediction is needed from the LLM.</p>
