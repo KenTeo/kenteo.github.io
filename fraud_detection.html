@@ -88,29 +88,43 @@
               <p>Above shows the overview of the proposed solution for fraud detection.</p>
 
               <p>In our proposed solution, we will train an explanable boosting machine (EBM) and Predict fraud using Large language model through referencing from a generalised dataset.</p>
-              <p></p>
+              <p>This dataset can be made up of structured and unstructured data. Structured data can be feed into the models for training directly. Unstructured data will be converted to contextual embedding before feeding into the EBM model.</p>
+              <p>Both outputs from the EBM and LLM are interpretable to enable the user to understand how the models made the prediction.</p>
+              <p>The outputs of the EBM and LLM models will be weighted differently to classify the fraud warning as high or low.</p>
+              <p>Cases that are predicted to have high level of fraud warnings will be prioritize for investigation first. Hence, optimizing the allocation of manpower for investigation.</p>
               <h2 class="h2 mb-3">Details of LLM for fraud detection</h2>
               <img src="assets/img/fraud/llm_details.png" alt="Image" class="img-fluid">
               <p>Above shows the details of using LLM to detect fraud</p>
-              <h2 class="h2 mb-3">Generalisation of subsampled data</h2>
-              <img src="assets/img/fraud/kmeans.png" alt="Image" class="img-fluid">
-              <p>K-means is used to obtain subsampled data.</p>
-              <h2 class="h2 mb-3">EBM global explanability</h2>
-              <img src="assets/img/fraud/ebm_global_demo.png" alt="Image" class="img-fluid">
-              <p>EBM global explanability can help to track concept drift in data</p>
-              <h2 class="h2 mb-3">EBM local explanability</h2>
-              <img src="assets/img/fraud/ebm_local_demo.png" alt="Image" class="img-fluid">
-              <p>EBM is used to explain the prediction based on the effects of the features</p>
-              <p>The reasoning from EBM will then be compared to the LLM for consistency</p>
+              <p>A generalised set of data will be save as contextual embedding in the VectorStore for reference.</p>
+              <p>When the user make a query for a fraud prediction. The LLM will make reference from the vectorStore to make prediction for potential fraud.</p>
+              <p>From actual testing, the LLM is not able to give consistent result for fraud prediction. To address this, we will be using Reinforced learning human feedback and Low-rank adapters to improve its ability to make fraud predictions.</p>
+              <p>See below for the LLM fraud prediction output</p>
               <h2 class="h2 mb-3">Prediction from LLM model</h2>
               <img src="assets/img/fraud/llm_output.png" alt="Image" class="img-fluid">
-              <p>Prediction from LLM will provide the reasons for the prediction</p>
+              <p>Prediction from LLM will provide the fraud prediction and its reasons for the prediction</p>
+              <h2 class="h2 mb-3">Generalisation of subsampled data</h2>
+              <img src="assets/img/fraud/kmeans.png" alt="Image" class="img-fluid">
+              <p>K-means is used to obtain a subsampled data from the raw dataset to ensure good generalisation of a subsampled data. This is because it is very costly to save all the data in the vectorstore for reference whenever a prediction is needed from the LLM.</p>
+              <h2 class="h2 mb-3">EBM global explanability</h2>
+              <img src="assets/img/fraud/ebm_global_demo.png" alt="Image" class="img-fluid">
+              <p>The EBM provides a global explanability for the relationship between the features and the label.</p>
+              <p>EBM global explanability can help to track concept drift in data and automatically trigger the re-training of the AI models if required.</p>
+              <h2 class="h2 mb-3">EBM local explanability</h2>
+              <img src="assets/img/fraud/ebm_local_demo.png" alt="Image" class="img-fluid">
+              <p>EBM is used to explain the prediction based on the effects of the features on the label prediction.</p>
+              <p>See below for an example of a full breakdown of the effects from the features on its label. (Fraud is predicted in this cases)</p>
               <h2 class="h2 mb-3">Prediction from EBM</h2>
               <img src="assets/img/fraud/ebm_output.png" alt="Image" class="img-fluid">
               <p>Prediction from EBM will provide the reasons for the prediction</p>
+              <p>The reasoning from EBM will then be compared to the LLM for consistency.</p>
+              <p>The EBM and LLM will form an ensemble model for fraud prediction.</p>
+              <h2 class="h2 mb-3">Confusion matrix of fraud prediction from EBM</h2>
+              <img src="assets/img/fraud/cm.png" alt="Image" class="img-fluid">
+              <p>The confusion matrix shows the fraud prediction without any fine-tuning and threshold adjustment.</p>
+              <p>Even without any human intervention, the EBM is highly effective in predicting fraud cases with very high recall and precision.</p>
               <h2 class="h2 mb-3">Advantage of interpretable ensemble model</h2>
               <img src="assets/img/fraud/union.png" alt="Image" class="img-fluid">
-              <p>EBM and LLM works hand in hand to provide a better solution</p>
+              <p>EBM and LLM works hand in hand to provide a better solution. EBM is able handle structured data better while LLM model is able to handle unstructured data better.</p>
             </div>
             <div class="col-md-3 ml-auto" data-aos="fade-up" data-aos-delay="100">
               <div class="sticky-content">
